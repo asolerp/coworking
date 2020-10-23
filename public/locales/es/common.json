@@ -1,0 +1,13 @@
+{
+  "menu": {
+    "about": "Quienes somos",
+    "coworking": "El coworking",
+    "where": "Dónde estamos",
+    "contact": "Contacta"
+  },
+  "header":  {
+    "title": "El mejor espacio para tu trabajo",
+    "subtitle_1": "coworking",
+    "subtitle_2": "networking"
+  }
+}
