@@ -1,7 +1,12 @@
 import React from 'react'
+import dynamic from 'next/dynamic';
+
+
 import Head from '../components/head'
 import Nav from '../components/nav'
 import Header from '../components/header';
+import About from '../components/about'
+import Coworking from '../components/coworking';
 
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +31,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Home = ({t}) => {
+
+  const DynamicComponentWithNoSSR = dynamic(() => import('../components/where'), {
+    ssr: false
+  });
+
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
@@ -34,6 +44,9 @@ const Home = ({t}) => {
         <div className={classes.root}>
           <Nav />
           <Header />
+          <About/>
+          <Coworking />
+          <DynamicComponentWithNoSSR />
         </div>
     </ThemeProvider>
   )
