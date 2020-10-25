@@ -4,10 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Toolbar from '@material-ui/core/Toolbar';
 
 import { withTranslation } from '../i18n'
+import { Link } from 'react-scroll'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     fontFamily: 'Montserrat',
     fontWeight: '400',
+    cursor: 'pointer'
   }
 }));
 
@@ -77,7 +77,9 @@ const Header = ({t}) => {
             {t('header.subtitle_2')}
           </Typography>
         </Box>
-        <button className={classes.button}>Contacta</button>
+        <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.button}>
+          Contacta
+        </Link>
       </Box>
     </React.Fragment>
   )

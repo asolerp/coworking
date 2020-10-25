@@ -7,6 +7,8 @@ import Nav from '../components/nav'
 import Header from '../components/header';
 import About from '../components/about'
 import Coworking from '../components/coworking';
+import Services from '../components/services'
+import Footer from '../components/footer'
 
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -47,6 +49,8 @@ const Home = ({t}) => {
           <About/>
           <Coworking />
           <DynamicComponentWithNoSSR />
+          <Services />
+          <Footer />
         </div>
     </ThemeProvider>
   )

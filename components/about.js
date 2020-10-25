@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from '../i18n'
+import { Element } from 'react-scroll'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,12 +64,11 @@ const Service = ({number, text}) => {
   )
 }
 
-
 const About = ({t}) => {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Element name="about">
       <Grid container xl={12}>
         <Grid item container  xl={5}>
           <Box className={classes.left} />
@@ -91,7 +91,7 @@ const About = ({t}) => {
           </Box>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Element>
   )
 }
 

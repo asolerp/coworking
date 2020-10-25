@@ -14,5 +14,15 @@
     "title":"Comunidad, creatividad, confort & mucho más",
     "subtitle": "QUIENES SOMOS",
     "text": "El mundo ha cambiado, los trabajos han cambiado. Nuestro coworking nace de la necesidad de poder escoger un puesto de trabajo donde uno quiera y el tiempo que quiera."
+  },
+  "where": {
+    "title":"En una de las zonas más exclusivas de mallorca",
+    "subtitle": "UBICACIÓN",
+    "email": {
+      "title": "Email"
+    },
+    "address": {
+      "title": "Dirección"
+    }
   }
 }

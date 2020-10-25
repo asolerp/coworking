@@ -8,6 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
 import { Grid } from '@material-ui/core';
 
+
+import { Link } from 'react-scroll'
 import { withTranslation } from '../i18n'
 
 
@@ -42,7 +44,14 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     color: '#4A92A8',
     fontWeight: 'bold',
-    marginRight: '5%'
+    fontFamily: 'Montserrat',
+    fontSize: '1.2rem',
+    marginRight: '5%',
+    cursor: 'pointer',
+    "&:hover": {
+      color: '#4AEDC2',
+      transition: 'all .3s'
+    }
   }
 }));
 
@@ -59,25 +68,31 @@ const Nav = (props) => {
                 <img src="/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
               </Grid>
               <Grid item container direction="row" justify="center" alignItems="center" xs={7}>
-              <Typography variant="h6" className={classes.menu}>
+              <Link  to="about" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>  
                 {props.t('menu.about')}
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
-                {props.t('menu.coworking')}
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
+              </Link>
+              <Link  to="coworking" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>            
+                  {props.t('menu.coworking')}          
+              </Link>
+              <Link  to="where" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
                 {props.t('menu.where')}
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
+              </Link>
+              <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
                 {props.t('menu.contact')}
-              </Typography>
+              </Link>
               </Grid>
-              <Grid item xs={1} container direction="row" justify="space-around" alignItems="center">
+              <Grid item xs={1} container direction="row" justify="center" alignItems="center">
               <Typography variant="h6" className={classes.menu}>
                 ES
               </Typography>
               <Typography variant="h6" className={classes.menu}>
+                |
+              </Typography>
+              <Typography variant="h6" className={classes.menu}>
                 EN
+              </Typography>
+              <Typography variant="h6" className={classes.menu}>
+                |
               </Typography>
               <Typography variant="h6" className={classes.menu}>
                 GB
