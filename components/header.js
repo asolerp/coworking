@@ -2,6 +2,8 @@ import React from 'react'
 
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 import Box from '@material-ui/core/Box';
 
@@ -22,18 +24,19 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     textAlign: 'center',
-    width: '50%',
-    marginBottom: "2%"
+    width: (UpSm) => UpSm ? '60%' : '90%' ,
+    marginBottom: (UpSm) => UpSm ? '2%' : '10%',
+    fontSize: (UpSm) => UpSm ? '8rem' : '4rem' 
   },
   subtitle: {
     color: 'white',
     fontFamily: 'Montserrat',
     textAlign: 'center',
-    width: '50%'
+    width: (UpSm) => UpSm ? '50%' : '100%' ,
   },
   dot: {
-    height: '25px',
-    width: '25px',
+    height: (UpSm) => UpSm ? '25px' : '15px',
+    width: (UpSm) => UpSm ? '25px' : '15px',
     backgroundColor: '#142A54',
     borderRadius: '50%',
     display: 'inline-block',
@@ -55,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = ({t}) => {
-  const classes = useStyles();
+  const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const classes = useStyles(UpSm);
   return (
     <React.Fragment>
       <Box 
@@ -68,7 +72,7 @@ const Header = ({t}) => {
         <Typography variant="h1" className={classes.title}>
           {t('header.title')}
         </Typography>
-        <Box display="flex" justifyContent="center" alignItems="center" width="35%" mb={20}>
+        <Box display="flex" flexDirection={UpSm ? "row" : "column"} justifyContent="center" alignItems="center" width={UpSm ? "35%" : "100%"} mb={UpSm ? 20 : 10}>
           <Typography variant="h4" className={classes.subtitle}>
             {t('header.subtitle_1')}
           </Typography>

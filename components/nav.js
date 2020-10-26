@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,8 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
-import { Grid } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
+import HamburgerMenu from 'react-hamburger-menu'
 
 import { Link } from 'react-scroll'
 import { withTranslation } from '../i18n'
@@ -38,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
   },
   logo: {
-    width: '90%',
-    padding: theme.spacing(3)
+    width: (UpSm) => UpSm ? '90%' : '100%',
+    padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(2)
   },
   menu: {
     color: '#4A92A8',
@@ -56,48 +58,76 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Nav = (props) => {
+  const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const classes = useStyles(UpSm);
 
-  const classes = useStyles();
+  const [ menuOpen, setMenuOpen ] = useState()
+
   return (
     <React.Fragment>
       <HideOnScroll {...props}>
         <Toolbar disableGutters={true}>
           <div className={classes.container}>
             <Grid container justify="space-between">
-              <Grid item container xs={4} justify="flex-start">
+              <Grid item container xs={10} xl={4} justify="flex-start">
                 <img src="/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
               </Grid>
-              <Grid item container direction="row" justify="center" alignItems="center" xs={7}>
-              <Link  to="about" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>  
-                {props.t('menu.about')}
-              </Link>
-              <Link  to="coworking" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>            
-                  {props.t('menu.coworking')}          
-              </Link>
-              <Link  to="where" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
-                {props.t('menu.where')}
-              </Link>
-              <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
-                {props.t('menu.contact')}
-              </Link>
-              </Grid>
-              <Grid item xs={1} container direction="row" justify="center" alignItems="center">
-              <Typography variant="h6" className={classes.menu}>
-                ES
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
-                |
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
-                EN
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
-                |
-              </Typography>
-              <Typography variant="h6" className={classes.menu}>
-                GB
-              </Typography>
-              </Grid>
+              {
+                !UpSm && (
+                  <Grid item container xs={2} justify="flex-start">
+                    <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
+                      <HamburgerMenu
+                          isOpen={menuOpen}
+                          menuClicked={() => setMenuOpen(!menuOpen)}
+                          width={18}
+                          height={15}
+                          strokeWidth={1}
+                          rotate={0}
+                          color='black'
+                          borderRadius={0}
+                          animationDuration={0.5}
+                      />
+                    </Box>
+                  </Grid>
+                )
+              }
+              {
+                UpSm && (
+                 <React.Fragment>
+                  <Grid item container direction="row" justify="center" alignItems="center" xs={7}>
+                    <Link  to="about" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>  
+                      {props.t('menu.about')}
+                    </Link>
+                    <Link  to="coworking" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>            
+                        {props.t('menu.coworking')}          
+                    </Link>
+                    <Link  to="where" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
+                      {props.t('menu.where')}
+                    </Link>
+                    <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
+                      {props.t('menu.contact')}
+                    </Link>
+                    </Grid>
+                    <Grid item xs={1} container direction="row" justify="center" alignItems="center">
+                    <Typography variant="h6" className={classes.menu}>
+                      ES
+                    </Typography>
+                    <Typography variant="h6" className={classes.menu}>
+                      |
+                    </Typography>
+                    <Typography variant="h6" className={classes.menu}>
+                      EN
+                    </Typography>
+                    <Typography variant="h6" className={classes.menu}>
+                      |
+                    </Typography>
+                    <Typography variant="h6" className={classes.menu}>
+                      GB
+                    </Typography>
+                  </Grid>
+                 </React.Fragment>
+                )
+              }
             </Grid>
           </div>
         </Toolbar>

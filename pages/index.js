@@ -46,11 +46,12 @@ const Home = ({t}) => {
         <div className={classes.root}>
           <Nav />
           <Header />
+          {/* 
           <About/>
           <Coworking />
           <DynamicComponentWithNoSSR />
           <Services />
-          <Footer />
+          <Footer /> */}
         </div>
     </ThemeProvider>
   )
