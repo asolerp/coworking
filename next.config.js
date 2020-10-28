@@ -5,6 +5,7 @@ const localeSubpaths = {
 }
 
 module.exports = withImages({
+  target: "serverless",
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
     localeSubpaths,
