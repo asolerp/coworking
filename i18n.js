@@ -1,10 +1,18 @@
-const NextI18Next = require('next-i18next').default
-const { localeSubpaths } = require('next/config').default().publicRuntimeConfig
-const path = require('path')
+const NextI18Next = require('next-i18next').default;
 
-module.exports = new NextI18Next({
-  otherLanguages: ['es'],
-  defaultLanguage: 'es',
-  localeSubpaths,
-  localePath: path.resolve('./public/locales')
-})
+const NextI18NextInstance = new NextI18Next({
+	defaultLanguage: 'es',
+	otherLanguages: ['en'],
+	localePath: "public/static/locales",
+});
+
+const {
+	appWithTranslation,
+	withTranslation,
+} = NextI18NextInstance;
+
+module.exports = {
+	nextI18next: NextI18NextInstance,
+	appWithTranslation,
+	withTranslation,
+};

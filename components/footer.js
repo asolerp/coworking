@@ -84,7 +84,7 @@ const Footer = () => {
       <Grid container xl={12} className={classes.root}>
         <Grid item container xl={7} >
           <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
-            <img src={'/images/logo_blue.svg'} className={classes.logo} />
+            <img src={'/static/images/logo_blue.svg'} className={classes.logo} />
           </Box>
         </Grid>
         <Grid item container xl={5}>

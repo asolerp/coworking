@@ -1,27 +1,27 @@
 
 export const Images = [
   {
-    img: '/images/image12.jpg',
+    img: '/static/images/image12.jpg',
     title: 'Salón',
   },
   {
-    img: '/images/image16.jpg',
+    img: '/static/images/image16.jpg',
     title: 'Salón',
   },
   {
-    img: '/images/image14.jpg',
+    img: '/static/images/image14.jpg',
     title: 'Salón',
   },
   {
-    img: '/images/image13.jpg',
+    img: '/static/images/image13.jpg',
     title: 'Salón',
   },
   {
-    img: '/images/image2.jpg',
+    img: '/static/images/image2.jpg',
     title: 'Salón',
   },
   {
-    img: '/images/image10.jpg',
+    img: '/static/images/image10.jpg',
     title: 'Salón',
   }
 ]

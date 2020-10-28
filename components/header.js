@@ -13,7 +13,7 @@ import { Link } from 'react-scroll'
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundImage: `url('/images/fondo_1.jpg')`,
+    backgroundImage: `url('/static/images/fondo_1.jpg')`,
     backgroundSize: 'cover',
     width: '100%',
     height: '85vh',

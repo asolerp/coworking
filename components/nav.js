@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     flexGrow: 1,
     backgroundColor: 'white',
+    height: "17vh !important"
   },
   containerOpen: {
     flexGrow: 1,
@@ -109,7 +110,7 @@ const Nav = (props) => {
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
-                  <img src="/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
+                  <img src="/static/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
                 </Grid>
                 {
                   !UpSm && (

@@ -12,7 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   left: {
-    backgroundImage: `url('/images/coworking.jpg')`,
+    backgroundImage: `url('/static/images/coworking.jpg')`,
     backgroundSize: 'cover',
     height: '100vh',
     flexGrow: 1,
