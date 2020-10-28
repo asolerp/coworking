@@ -1,0 +1,28 @@
+{
+  "menu": {
+    "about": "Quienes somos",
+    "coworking": "El coworking",
+    "where": "Dónde estamos",
+    "contact": "Contacta"
+  },
+  "header":  {
+    "title": "El mejor espacio para tu trabajo",
+    "subtitle_1": "coworking",
+    "subtitle_2": "networking"
+  },
+  "about": {
+    "title":"Comunidad, creatividad, confort & mucho más",
+    "subtitle": "QUIENES SOMOS",
+    "text": "El mundo ha cambiado, los trabajos han cambiado. Nuestro coworking nace de la necesidad de poder escoger un puesto de trabajo donde uno quiera y el tiempo que quiera."
+  },
+  "where": {
+    "title":"En una de las zonas más exclusivas de mallorca",
+    "subtitle": "UBICACIÓN",
+    "email": {
+      "title": "Email"
+    },
+    "address": {
+      "title": "Dirección"
+    }
+  }
+}
