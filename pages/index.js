@@ -19,10 +19,6 @@ import { Box } from '@material-ui/core';
 
 import { FaChevronCircleUp } from 'react-icons/fa'
 
-
-
-import { withTranslation } from '../i18n'
-
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -92,4 +88,4 @@ const Home = ({t}) => {
   )
 }
 
-export default withTranslation('common')(Home)
+export default Home
