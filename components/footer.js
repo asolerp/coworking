@@ -17,7 +17,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2)
   },
   logo: {
-    width: '40%'
+    width: '40%',
+    [theme.breakpoints.down('sm')]: {
+      width: '80%',
+    }
   },
   form: {
     display: 'flex',
@@ -32,7 +35,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     border: 0,
     borderRadius: '20px',
-    marginBottom: '2%'
+    marginBottom: '2%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    }
   },
   text: {
     width: '80%',
@@ -41,7 +47,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     marginBottom: '2%',
     border: 0,
-    borderRadius: '20px'
+    borderRadius: '20px',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    }
   },
   button: {
     width: '80%',
@@ -50,7 +59,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#142A54',
     background: '#4AEDC2',
     height: '50px',
-    fontSize: '1.5rem'
+    fontSize: '1.5rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    }
   },
   error: {
     color: '#4AEDC2',

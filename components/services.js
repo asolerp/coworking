@@ -8,6 +8,8 @@ import { BiNetworkChart } from 'react-icons/bi'
 
 import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from '../i18n'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   serviceTitle: {
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+      textAlign: 'center'
+    }
   }
 })
 )
@@ -35,20 +41,23 @@ const Service = ({children, service}) => {
 
 const Services = () => {
   const classes = useStyles();
+  const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
   return(
     <Grid container xl={12} className={classes.root}>
-      <Grid item xl={2} />
-      <Grid item xl={8} container justifyContent="center" alignItems="center">
+      {
+        UpSm && (<Grid item xl={2} />)
+      }      
+      <Grid item xl={8} xs={12} container justifyContent="center" alignItems="center">
       <Box display="flex" alignItems="center" justifyContent="space-around" width={'100%'}>
         <Service service={"Sala de reuniones"}>
-          <BsFillPeopleFill color="#4AEDC2" size={100} />
+          <BsFillPeopleFill color="#4AEDC2" size={UpSm ? 100 : 50} />
         </Service>
         <Service service={"Wifi alta velocidad"}>
-          <BsWifi color="#4AEDC2" size={100} />
+          <BsWifi color="#4AEDC2" size={UpSm ? 100 : 50} />
         </Service>
         <Service service={"Varios espacios"}>
-          <BiNetworkChart color="#4AEDC2" size={100} />
+          <BiNetworkChart color="#4AEDC2" size={UpSm ? 100 : 50} />
         </Service>
       </Box>
       </Grid>

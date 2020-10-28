@@ -10,8 +10,9 @@ import { Grid, Box } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import HamburgerMenu from 'react-hamburger-menu'
+import Menu from './menu'
 
-import { Link } from 'react-scroll'
+import { Transition } from 'react-transition-group';
 import { withTranslation } from '../i18n'
 
 
@@ -39,6 +40,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: 'white',
   },
+  containerOpen: {
+    flexGrow: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    transition: "all .5s"
+  },
   logo: {
     width: (UpSm) => UpSm ? '90%' : '100%',
     padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(2)
@@ -57,6 +65,30 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const defaultStyle = {
+  transition: `height 300ms ease-in-out`,
+  height: '11vh',
+}
+
+const transitionStyles = {
+  entering: { height: '40vh' },
+  entered:  { height: '40vh' },
+  exiting:  { height: '11vh' },
+  exited:  { height: '11vh' },
+};
+
+const defaultStyle2 = {
+  transition: `opacity 300ms ease-in-out`,
+  opacity: 0,
+}
+
+const transitionStyles2 = {
+  entering: { opacity: 1 },
+  entered:  { opacity: 1 },
+  exiting:  { opacity: 0 },
+  exited:  { opacity: 0 },
+};
+
 const Nav = (props) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
   const classes = useStyles(UpSm);
@@ -67,69 +99,61 @@ const Nav = (props) => {
     <React.Fragment>
       <HideOnScroll {...props}>
         <Toolbar disableGutters={true}>
-          <div className={classes.container}>
-            <Grid container justify="space-between">
-              <Grid item container xs={10} xl={4} justify="flex-start">
-                <img src="/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
-              </Grid>
-              {
-                !UpSm && (
-                  <Grid item container xs={2} justify="flex-start">
-                    <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
-                      <HamburgerMenu
-                          isOpen={menuOpen}
-                          menuClicked={() => setMenuOpen(!menuOpen)}
-                          width={18}
-                          height={15}
-                          strokeWidth={1}
-                          rotate={0}
-                          color='black'
-                          borderRadius={0}
-                          animationDuration={0.5}
-                      />
-                    </Box>
-                  </Grid>
-                )
-              }
-              {
-                UpSm && (
-                 <React.Fragment>
-                  <Grid item container direction="row" justify="center" alignItems="center" xs={7}>
-                    <Link  to="about" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>  
-                      {props.t('menu.about')}
-                    </Link>
-                    <Link  to="coworking" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>            
-                        {props.t('menu.coworking')}          
-                    </Link>
-                    <Link  to="where" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
-                      {props.t('menu.where')}
-                    </Link>
-                    <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
-                      {props.t('menu.contact')}
-                    </Link>
+        <Transition in={menuOpen} timeout={300}>
+          {
+            state => (
+            <div className={menuOpen ? classes.containerOpen : classes.container} 
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state]
+            }}>
+              <Grid container justify="space-between">
+                <Grid item container xs={10} xl={4} justify="flex-start">
+                  <img src="/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
+                </Grid>
+                {
+                  !UpSm && (
+                    <Grid item container xs={2} justify="flex-start">
+                      <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
+                        <HamburgerMenu
+                            isOpen={menuOpen}
+                            menuClicked={() => setMenuOpen(!menuOpen)}
+                            width={18}
+                            height={15}
+                            strokeWidth={1}
+                            rotate={0}
+                            color='black'
+                            borderRadius={0}
+                            animationDuration={0.5}
+                        />
+                      </Box>
                     </Grid>
-                    <Grid item xs={1} container direction="row" justify="center" alignItems="center">
-                    <Typography variant="h6" className={classes.menu}>
-                      ES
-                    </Typography>
-                    <Typography variant="h6" className={classes.menu}>
-                      |
-                    </Typography>
-                    <Typography variant="h6" className={classes.menu}>
-                      EN
-                    </Typography>
-                    <Typography variant="h6" className={classes.menu}>
-                      |
-                    </Typography>
-                    <Typography variant="h6" className={classes.menu}>
-                      GB
-                    </Typography>
-                  </Grid>
-                 </React.Fragment>
-                )
-              }
-            </Grid>
-          </div>
+                  )
+                }
+                {
+                  UpSm && (<Menu />)
+                }
+                {                
+                  menuOpen && (      
+                    <Transition in={menuOpen} timeout={300}>
+                      {
+                        state => (
+                          <Menu menuOpen={menuOpen} 
+                          transStyle={{
+                            ...defaultStyle2,
+                            ...transitionStyles2[state]
+                          }}
+                          />
+                        )
+                      }
+                    </Transition>
+                  )
+                }
+              </Grid>
+            </div>
+            )
+          }
+        </Transition>
         </Toolbar>
       </HideOnScroll>
     </React.Fragment>

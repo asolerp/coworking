@@ -15,6 +15,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { Box } from '@material-ui/core';
+
+import { FaChevronCircleUp } from 'react-icons/fa'
+
+
 
 import { withTranslation } from '../i18n'
 
@@ -29,8 +34,38 @@ const theme = createMuiTheme({
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    position: 'relative'
   },
+  upButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'fixed',
+    width: '70px',
+    height: '70px',
+    borderRadius: '50%',
+    zIndex: 9999,
+    right: 10,
+    top: 850,
+    [theme.breakpoints.down('sm')]: {
+      top: 710,
+    }
+  }
 }));
+
+export const UpButton = () => {
+
+  const topScroll = () => {
+    window.scroll({top: 0, left: 0, behavior: 'smooth'})
+  }
+
+  const classes = useStyles();
+  return (
+    <Box className={classes.upButton}>
+     <FaChevronCircleUp color="#4AEDC2" size={50} style={{cursor: 'pointer'}} onClick={() => topScroll()}/>
+    </Box>
+  )
+}
 
 const Home = ({t}) => {
 
@@ -44,14 +79,14 @@ const Home = ({t}) => {
         <CssBaseline />
         <Head title="Coworking | Port D'Andratx" />
         <div className={classes.root}>
+          <UpButton />
           <Nav />
           <Header />
-          {/* 
           <About/>
           <Coworking />
           <DynamicComponentWithNoSSR />
           <Services />
-          <Footer /> */}
+          <Footer />
         </div>
     </ThemeProvider>
   )

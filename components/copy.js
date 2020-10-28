@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
     color: '#4AEDC2',
     fontSize: '1.2rem',
     fontFamily: 'Montserrat',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+      textAlign: 'center',
+      marginBottom: '7%'
+    }
   }
 })
 )

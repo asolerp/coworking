@@ -10,7 +10,7 @@ import Box from '@material-ui/core/Box';
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiOutlineMail } from 'react-icons/ai'
 
-
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from '../i18n'
 import { Element } from 'react-scroll'
@@ -18,27 +18,44 @@ import { Element } from 'react-scroll'
 
 const useStyles = makeStyles((theme) => ({
   left: {
+    width: '100%',
     height: '100vh',
     backgroundColor: '#142A54',
     paddingLeft: '5%',
     flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      height: '70vh',
+    }
   },
   right: {
-    width: '100%'
+    width: '100%',
+    height: '100vh',
+    flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      height: '70vh',
+    }
   },
   title: {
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     color: 'white',
     width: '90%',
-    marginBottom: '5%'
+    marginBottom: '5%',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '3rem',
+      width: '100%',
+      marginBottom: '20%'
+    }
   },
   subtitle: {
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     color: 'white',
     marginBottom: '5%',
-    marginTop: '5%'
+    marginTop: '5%',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.3rem',
+    }
   },
   text: {
     width: '85%',
@@ -63,16 +80,28 @@ const useStyles = makeStyles((theme) => ({
     height: '100px',
     border: '3px solid white',
     borderRadius: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '50px',
+      height: '50px',
+    }
   },
   iconTitle: {
     margin: 0,
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem',
+      width: '100%',
+    }
   },
   iconInfo: {
     fontFamily: 'Montserrat',
     color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+      width: '100%',
+    }
   }
 })
 )
@@ -98,11 +127,12 @@ const InfoItem = ({title, info, children}) => {
 
 const Where = ({t}) => {
   const classes = useStyles();
+  const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
   return (
     <Element name="where">
-      <Grid container xl={12}>
-        <Grid item container  xl={6}>
+      <Grid container>
+        <Grid item container  xl={6} xs={12}>
           <Box className={classes.left} display="flex" flexDirection="column" justifyContent="flex-start">
             <Typography variant="h5" className={classes.subtitle}>
               {t('where.subtitle')}
@@ -110,17 +140,17 @@ const Where = ({t}) => {
             <Typography variant="h2" className={classes.title}>
               {t('where.title')}
             </Typography>         
-            <Box display="flex" flexDirection="column" justifyContent="center" style={{flexGrow: 1}}>
+            <Box display="flex" flexDirection="column" justifyContent={UpSm ? "center" : "flex-start"} style={{flexGrow: 1}}>
               <InfoItem title={t('where.address.title')} info={'C/ Andratx nº1'}>
-                <FaMapMarkerAlt color="white" size={50} />
+                <FaMapMarkerAlt color="white" size={UpSm ? 50 : 25} />
               </InfoItem>
               <InfoItem title={t('where.email.title')} info={'info@coworkingportandratx.com'}>
-                <AiOutlineMail color="white" size={50} />
+                <AiOutlineMail color="white" size={UpSm ? 50 : 25} />
               </InfoItem>
             </Box>
           </Box>
         </Grid>
-        <Grid item container  xl={6}>
+        <Grid item container  xl={6} xs={12}>
           <Box className={classes.right}>
             <ReactMapGL
             mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"

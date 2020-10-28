@@ -18,28 +18,43 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '85vh',
     flexGrow: 1,
+    [theme.breakpoints.down('sm')]: {
+      height: '90vh',
+    }
   },
   title: {
     color: 'white',
     fontFamily: 'Montserrat',
     fontWeight: 'bold',
     textAlign: 'center',
-    width: (UpSm) => UpSm ? '60%' : '90%' ,
-    marginBottom: (UpSm) => UpSm ? '2%' : '10%',
-    fontSize: (UpSm) => UpSm ? '8rem' : '4rem' 
+    width: '60%',
+    marginBottom: '2%',
+    fontSize: '8rem', 
+    [theme.breakpoints.down('sm')]: {
+      width: '90%',
+      marginBottom: '10%',
+      fontSize: '4rem'
+    }
   },
   subtitle: {
     color: 'white',
     fontFamily: 'Montserrat',
     textAlign: 'center',
-    width: (UpSm) => UpSm ? '50%' : '100%' ,
+    width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '90%',
+    }
   },
   dot: {
-    height: (UpSm) => UpSm ? '25px' : '15px',
-    width: (UpSm) => UpSm ? '25px' : '15px',
+    height: '25px',
+    width: '25px',
     backgroundColor: '#142A54',
     borderRadius: '50%',
     display: 'inline-block',
+    [theme.breakpoints.down('sm')]: {
+      height: '15px',
+      width: '15px',
+    }
   },
   button: {
     paddingLeft: theme.spacing(5),
@@ -59,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = ({t}) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
-  const classes = useStyles(UpSm);
+  const classes = useStyles();
   return (
     <React.Fragment>
       <Box 
