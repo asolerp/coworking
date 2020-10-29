@@ -1,27 +1,27 @@
 
 export const Images = [
   {
-    img: '/static/images/image12.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image12.jpg',
     title: 'Salón',
   },
   {
-    img: '/static/images/image16.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/image16.jpg',
     title: 'Salón',
   },
   {
-    img: '/static/images/image14.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image14.jpg',
     title: 'Salón',
   },
   {
-    img: '/static/images/image13.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image13.jpg',
     title: 'Salón',
   },
   {
-    img: '/static/images/image2.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image2.jpg',
     title: 'Salón',
   },
   {
-    img: '/static/images/image10.jpg',
+    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image10.jpg',
     title: 'Salón',
   }
 ]

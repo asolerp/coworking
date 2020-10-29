@@ -13,7 +13,7 @@ import { Link } from 'react-scroll'
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundImage: `url('/static/images/fondo_1.jpg')`,
+    backgroundImage: `url('https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/fondo_1.jpg')`,
     backgroundSize: 'cover',
     width: '100%',
     height: '85vh',
