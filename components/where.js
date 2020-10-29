@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     [theme.breakpoints.down('sm')]: {
       height: '70vh',
+    },
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      height: '150vh',
     }
   },
   right: {
@@ -47,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '3rem',
       width: '100%',
       marginBottom: '20%'
+    },
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      marginBottom: '5%'
     }
   },
   subtitle: {

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core/styles';
 import Slide from '@material-ui/core/Slide';
@@ -65,17 +63,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const defaultStyle = {
+const defaultStyle = () => ({
   transition: `height 300ms ease-in-out`,
+  width: '100%',
   height: 'auto'
-}
+})
 
-const transitionStyles = {
-  entering: { height: '40vh' },
-  entered:  { height: '40vh' },
+const transitionStyles = (landscape) => ({
+  entering: { height: landscape ? '80vh' : '40vh' },
+  entered:  { height: landscape ? '80vh' : '40vh' },
   exiting:  { height: 'auto' },
   exited:  { height: 'auto' },
-};
+});
 
 const defaultStyle2 = {
   transition: `opacity 300ms ease-in-out`,
@@ -91,6 +90,8 @@ const transitionStyles2 = {
 
 const Nav = (props) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const Ipad = useMediaQuery(theme => theme.breakpoints.between('sm','md'));
+  const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
   const classes = useStyles(UpSm);
 
   const [ menuOpen, setMenuOpen ] = useState()
@@ -103,15 +104,15 @@ const Nav = (props) => {
             state => (
             <div className={menuOpen ? classes.containerOpen : UpSm && classes.container} 
             style={{
-              ...defaultStyle,
-              ...transitionStyles[state]
+              ...defaultStyle(),
+              ...transitionStyles(SmLandscape)[state]
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
                   <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_white.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {
-                  !UpSm && (
+                  (SmLandscape || !UpSm || Ipad) && (
                     <Grid item container xs={2} justify="flex-start">
                       <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
                         <HamburgerMenu
@@ -130,7 +131,7 @@ const Nav = (props) => {
                   )
                 }
                 {
-                  UpSm && (<Menu />)
+                  UpSm && !SmLandscape && !Ipad && (<Menu />)
                 }
                 {                
                   menuOpen && (      

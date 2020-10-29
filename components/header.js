@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     [theme.breakpoints.down('sm')]: {
       height: '90vh',
+    },
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      height: '200vh',
     }
   },
   title: {
@@ -74,6 +77,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = ({t}) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
+
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -87,7 +92,7 @@ const Header = ({t}) => {
         <Typography variant="h1" className={classes.title}>
           {t('header.title')}
         </Typography>
-        <Box display="flex" flexDirection={UpSm ? "row" : "column"} justifyContent="center" alignItems="center" width={UpSm ? "35%" : "100%"} mb={UpSm ? 20 : 10}>
+        <Box display="flex" flexDirection={UpSm && !SmLandscape ? "row" : "column"} justifyContent="center" alignItems="center" width={UpSm ? "35%" : "100%"} mb={UpSm ? 20 : 10}>
           <Typography variant="h4" className={classes.subtitle}>
             {t('header.subtitle_1')}
           </Typography>

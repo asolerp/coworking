@@ -14,7 +14,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
     backgroundColor: '#142A54',
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      height: '250vh',
+    }
   },
   logo: {
     width: '40%',

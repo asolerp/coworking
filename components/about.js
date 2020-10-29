@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     height: '100vh',
     flexGrow: 1,
+    [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
+      backgroundPosition: '0 50%'
+    }
   },
   right: {
     padding: theme.spacing(5),
@@ -75,9 +78,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Service = ({number, text}) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const Ipad = useMediaQuery(theme => theme.breakpoints.between('sm','md'));
+  const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
+
   const classes = useStyles();
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" mb={3} width={!UpSm && "100%"}>
+    <Box display="flex" justifyContent="center" alignItems="center" mb={3} width={!UpSm || SmLandscape || Ipad && "100%"}>
       <Typography variant="h1" component="p" className={classes.serviceNumber}>
         {number}
       </Typography>
@@ -90,6 +96,8 @@ const Service = ({number, text}) => {
 
 const About = ({t}) => {
   const classes = useStyles();
+  const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
+  const Ipad = useMediaQuery(theme => theme.breakpoints.between('sm','md'));
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
   return (
@@ -113,7 +121,7 @@ const About = ({t}) => {
             <Typography variant="h4" className={classes.text}>
               {t('about.text')}
             </Typography>
-            <Box display="flex" flexDirection={UpSm ? "row" : "column" } justifyContent="space-around" style={{ flexGrow: 1}}>
+            <Box display="flex" flexDirection={UpSm && !SmLandscape && !Ipad ? "row" : "column" } justifyContent="space-around" style={{ flexGrow: 1, width: '100%'}}>
               <Service number={3} text={"Espacios"} />
               <Service number={24} text={"Horas"} />
             </Box>           

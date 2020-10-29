@@ -75,8 +75,8 @@ const Home = ({t}) => {
     <ThemeProvider theme={theme}>
         <CssBaseline />
         <Head title="Coworking | Port D'Andratx" />
+        <UpButton />
         <div className={classes.root}>
-          <UpButton />
           <Nav />
           <Header />
           <About/>

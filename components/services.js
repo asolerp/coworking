@@ -14,6 +14,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '30vh',
+    width: '100%'
   },
   serviceTitle: {
     fontFamily: 'Montserrat',
@@ -42,22 +43,23 @@ const Service = ({children, service}) => {
 const Services = () => {
   const classes = useStyles();
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
+  const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
 
   return(
     <Grid container xl={12} className={classes.root}>
       {
-        UpSm && (<Grid item xl={2} />)
+        UpSm && !SmLandscape && (<Grid item xl={2} />)
       }      
       <Grid item xl={8} xs={12} container justifyContent="center" alignItems="center">
       <Box display="flex" alignItems="center" justifyContent="space-around" width={'100%'}>
         <Service service={"Sala de reuniones"}>
-          <BsFillPeopleFill color="#4AEDC2" size={UpSm ? 100 : 50} />
+          <BsFillPeopleFill color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
         <Service service={"Wifi alta velocidad"}>
-          <BsWifi color="#4AEDC2" size={UpSm ? 100 : 50} />
+          <BsWifi color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
         <Service service={"Varios espacios"}>
-          <BiNetworkChart color="#4AEDC2" size={UpSm ? 100 : 50} />
+          <BiNetworkChart color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
       </Box>
       </Grid>
