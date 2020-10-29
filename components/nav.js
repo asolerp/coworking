@@ -110,7 +110,7 @@ const Nav = (props) => {
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
-                  <img src="/static/images/logo_white.svg" alt="Vercel Logo" className={classes.logo} />
+                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955524/Coworking/Logo_white.png" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {
                   !UpSm && (
