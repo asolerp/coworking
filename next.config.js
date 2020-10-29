@@ -5,6 +5,9 @@ const localeSubpaths = {
 }
 
 module.exports = withImages({
+  experimental: {
+    reactRefresh: true
+  },
   target: "serverless",
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
