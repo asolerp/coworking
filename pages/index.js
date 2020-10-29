@@ -30,6 +30,7 @@ const theme = createMuiTheme({
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    zIndex: 1,
     position: 'relative'
   },
   upButton: {
@@ -40,11 +41,11 @@ const useStyles = makeStyles(theme => ({
     width: '70px',
     height: '70px',
     borderRadius: '50%',
-    zIndex: 9999,
+    zIndex: 99,
     right: 10,
     top: 850,
     [theme.breakpoints.down('sm')]: {
-      top: 710,
+      top: 550,
     }
   }
 }));

@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     width: '40%',
     [theme.breakpoints.down('sm')]: {
       width: '80%',
+      marginBottom: '5%'
     }
   },
   form: {
@@ -84,7 +85,7 @@ const Footer = () => {
       <Grid container xl={12} className={classes.root}>
         <Grid item container xl={7} >
           <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
-            <img src={'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/logo_blue.svg'} className={classes.logo} />
+            <img src={'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_blue.svg'} className={classes.logo} />
           </Box>
         </Grid>
         <Grid item container xl={5}>

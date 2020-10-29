@@ -154,7 +154,7 @@ const Where = ({t}) => {
         </Grid>
         <Grid item container  xl={6} xs={12}>
           <Box className={classes.right}>
-            <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", background: "transparent", zIndex: 5 }} />
+            <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", background: "transparent", zIndex: 2 }} />
             <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", zIndex: 1 }}>
               <ReactMapGL
               mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"

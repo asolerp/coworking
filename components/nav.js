@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     flexGrow: 1,
     backgroundColor: 'white',
-    height: "17vh !important"
   },
   containerOpen: {
     flexGrow: 1,
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: (UpSm) => UpSm ? '90%' : '100%',
-    padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(2)
+    padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(1)
   },
   menu: {
     color: '#4A92A8',
@@ -68,14 +67,14 @@ const useStyles = makeStyles((theme) => ({
 
 const defaultStyle = {
   transition: `height 300ms ease-in-out`,
-  height: '11vh',
+  height: 'auto'
 }
 
 const transitionStyles = {
   entering: { height: '40vh' },
   entered:  { height: '40vh' },
-  exiting:  { height: '11vh' },
-  exited:  { height: '11vh' },
+  exiting:  { height: 'auto' },
+  exited:  { height: 'auto' },
 };
 
 const defaultStyle2 = {
@@ -98,7 +97,6 @@ const Nav = (props) => {
 
   return (
     <React.Fragment>
-      <HideOnScroll {...props}>
         <Toolbar disableGutters={true}>
         <Transition in={menuOpen} timeout={300}>
           {
@@ -110,7 +108,7 @@ const Nav = (props) => {
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
-                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603958109/Coworking/Logo_10.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
+                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_white.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {
                   !UpSm && (
@@ -156,7 +154,6 @@ const Nav = (props) => {
           }
         </Transition>
         </Toolbar>
-      </HideOnScroll>
     </React.Fragment>
   )
 }
