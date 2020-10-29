@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   right: {
+    position: 'relative',
+    zIndex: 999999,
     width: '100%',
     height: '100vh',
     flexGrow: 1,
@@ -152,19 +154,22 @@ const Where = ({t}) => {
         </Grid>
         <Grid item container  xl={6} xs={12}>
           <Box className={classes.right}>
-            <ReactMapGL
-            mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"
-            mapboxApiAccessToken="pk.eyJ1IjoiYXNvbGVycCIsImEiOiJjam92ejA2ZGYxbWJrM3dwaDA4YmY1eDA2In0.dhk_MNpNlTqubZiObpTOtg"
-            width='100%'
-            height='100%'
-            latitude={39.544865}
-            longitude={2.389223}
-            zoom={14}
-            >
-            <Marker latitude={39.543922} longitude={2.385725} offsetLeft={0} offsetTop={0}>
-              <img src={'/images/logo_simple.png'} className={classes.logo} />
-            </Marker>
-            </ReactMapGL>
+            <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", background: "transparent", zIndex: 5 }} />
+            <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", zIndex: 1 }}>
+              <ReactMapGL
+              mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"
+              mapboxApiAccessToken="pk.eyJ1IjoiYXNvbGVycCIsImEiOiJjam92ejA2ZGYxbWJrM3dwaDA4YmY1eDA2In0.dhk_MNpNlTqubZiObpTOtg"
+              width='100%'
+              height='100%'
+              latitude={39.544865}
+              longitude={2.389223}
+              zoom={14}
+              >
+              <Marker latitude={39.543922} longitude={2.385725} offsetLeft={0} offsetTop={0}>
+                <img src={'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/logo_simple.png'} className={classes.logo} />
+              </Marker>
+              </ReactMapGL>
+            </Box>
           </Box>
         </Grid>
       </Grid>

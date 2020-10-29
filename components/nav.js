@@ -103,14 +103,14 @@ const Nav = (props) => {
         <Transition in={menuOpen} timeout={300}>
           {
             state => (
-            <div className={menuOpen ? classes.containerOpen : classes.container} 
+            <div className={menuOpen ? classes.containerOpen : UpSm && classes.container} 
             style={{
               ...defaultStyle,
               ...transitionStyles[state]
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
-                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955524/Coworking/Logo_white.png" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
+                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603958109/Coworking/Logo_10.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {
                   !UpSm && (
