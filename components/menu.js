@@ -9,7 +9,7 @@ import { withTranslation } from '../i18n'
 
 const useStyles = makeStyles((theme) => ({
   menu: {
-    color: '#4A92A8',
+    color: 'white',
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     fontSize: '1.2rem',

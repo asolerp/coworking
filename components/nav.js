@@ -36,13 +36,13 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     flexGrow: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#142A54',
   },
   containerOpen: {
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#142A54',
     transition: "all .5s"
   },
   logo: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(1)
   },
   menu: {
-    color: '#4A92A8',
+    color: 'white',
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     fontSize: '1.2rem',
@@ -66,7 +66,8 @@ const useStyles = makeStyles((theme) => ({
 const defaultStyle = () => ({
   transition: `height 300ms ease-in-out`,
   width: '100%',
-  height: 'auto'
+  height: 'auto',
+  backgroundColor: '#142A54'
 })
 
 const transitionStyles = (landscape) => ({
@@ -78,7 +79,7 @@ const transitionStyles = (landscape) => ({
 
 const defaultStyle2 = {
   transition: `opacity 300ms ease-in-out`,
-  opacity: 0,
+  opacity: 0
 }
 
 const transitionStyles2 = {
@@ -109,7 +110,7 @@ const Nav = (props) => {
             }}>
               <Grid container justify="space-between">
                 <Grid item container xs={10} xl={4} justify="flex-start">
-                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_white.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
+                  <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_blue.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {
                   (SmLandscape || !UpSm || Ipad) && (
@@ -122,7 +123,7 @@ const Nav = (props) => {
                             height={15}
                             strokeWidth={1}
                             rotate={0}
-                            color='black'
+                            color='white'
                             borderRadius={0}
                             animationDuration={0.5}
                         />
