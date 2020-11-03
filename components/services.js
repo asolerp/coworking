@@ -40,7 +40,7 @@ const Service = ({children, service}) => {
   )
 }
 
-const Services = () => {
+const Services = ({t}) => {
   const classes = useStyles();
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
   const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
@@ -52,13 +52,13 @@ const Services = () => {
       }      
       <Grid item xl={8} xs={12} container justifyContent="center" alignItems="center">
       <Box display="flex" alignItems="center" justifyContent="space-around" width={'100%'}>
-        <Service service={"Sala de reuniones"}>
+        <Service service={t('services.sala')}>
           <BsFillPeopleFill color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
-        <Service service={"Wifi alta velocidad"}>
+        <Service service={t('services.wifi')}>
           <BsWifi color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
-        <Service service={"Varios espacios"}>
+        <Service service={t('services.areas')}>
           <BiNetworkChart color="#4AEDC2" size={UpSm && !SmLandscape ? 100 : 50} />
         </Service>
       </Box>

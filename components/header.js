@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
       width: '90%',
       marginBottom: '10%',
       fontSize: '4rem'
+    },
+    [theme.breakpoints.only('lg')]: {
+      fontSize: '6rem'
     }
   },
   subtitle: {
@@ -102,7 +105,7 @@ const Header = ({t}) => {
           </Typography>
         </Box>
         <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.button}>
-          Contacta
+          {t('header.contact')}
         </Link>
       </Box>
     </React.Fragment>

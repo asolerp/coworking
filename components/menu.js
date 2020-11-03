@@ -5,7 +5,7 @@ import { Grid, Typography } from '@material-ui/core';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles } from '@material-ui/core/styles';
-import { withTranslation } from '../i18n'
+import { i18n, withTranslation } from '../i18n'
 
 const useStyles = makeStyles((theme) => ({
   menu: {
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
       color: '#4AEDC2',
       transition: 'all .3s'
     }
+  },
+  active: {
+    color: '#4AEDC2',
   }
 }));
 
@@ -29,28 +32,35 @@ const Menu = (props) => {
 
   return (
     <React.Fragment>
-      <Grid style={{...props.transStyle}} item container direction={UpSm ? "row" : "column"} justify="center" alignItems="center" xl={7} height={"100%"}>
+      <Grid style={{...props.transStyle}} item container direction={UpSm ? "row" : "column"} justify="center" alignItems="center" lg={7} xl={7} height={"100%"}>
         <Link  to="about" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>  
           {props.t('menu.about')}
         </Link>
         <Link  to="coworking" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}>            
             {props.t('menu.coworking')}          
         </Link>
-        <Link  to="where" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
+        <Link  to="donde" smooth={true} offset={1300} duration={500} className={classes.menu}> 
           {props.t('menu.where')}
         </Link>
         <Link  to="contact" spy={true} smooth={true} offset={0} duration={500} className={classes.menu}> 
           {props.t('menu.contact')}
         </Link>
       </Grid>
-      <Grid item xl={1} container direction="row" justify="center" alignItems="center">
-        <Typography variant="h6" className={classes.menu}>
+      <Grid item lg={1} xl={1} container direction="row" justify="center" alignItems="center">
+        <Typography 
+          onClick={() => i18n.changeLanguage('es')}
+          variant="h6" 
+          className={[classes.menu, i18n.language === 'es' && classes.active]}
+        >
           ES
         </Typography>
         <Typography variant="h6" className={classes.menu}>
           |
         </Typography>
-        <Typography variant="h6" className={classes.menu}>
+        <Typography 
+          onClick={() => i18n.changeLanguage('en')}
+          variant="h6" 
+          className={[classes.menu, i18n.language === 'en' && classes.active]}>
           EN
         </Typography>
         {/* <Typography variant="h6" className={classes.menu}>

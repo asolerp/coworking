@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 })
 )
 
-const Footer = () => {
+const Footer = ({t}) => {
   const classes = useStyles();
   const onSubmit = data => console.log(data);
   const { register, errors, handleSubmit } = useForm();
@@ -86,21 +86,21 @@ const Footer = () => {
   return(
     <Element name="contact">
       <Grid container xl={12} className={classes.root}>
-        <Grid item container xl={7} >
+        <Grid item container lg={7} xl={7} >
           <Box display="flex" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
             <img src={'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_blue.svg'} className={classes.logo} />
           </Box>
         </Grid>
-        <Grid item container xl={5}>
+        <Grid item container lg={5} xl={5}>
           <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" style={{flexGrow: 1}}>
             <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-              <input type="text" name="name" className={classes.input} placeholder="Nombre completo" ref={register({ required: true })}></input>
+              <input type="text" name="name" className={classes.input} placeholder={t('contact.name')} ref={register({ required: true })}></input>
               {errors.name && <Typography variant="h4" className={classes.error}>El nombre es obligatorio</Typography>}
-              <input type="text" name="email" className={classes.input} placeholder="Email" ref={register({ required: true, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/  })}></input>
+              <input type="text" name="email" className={classes.input} placeholder={t('contact.email')} ref={register({ required: true, pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/  })}></input>
               {errors.email && <Typography variant="h4" className={classes.error}>El email no es correcto</Typography>}
-              <input type="text" name="phone" className={classes.input} placeholder="Teléfono" ref={register({ required: true, maxLength: 20 })}></input>
+              <input type="text" name="phone" className={classes.input} placeholder={t('contact.phone')} ref={register({ required: true, maxLength: 20 })}></input>
               {errors.phone && <Typography variant="h4" className={classes.error}>El teléfono es obligatorio</Typography>}
-              <textarea name="message" className={classes.text} rows="10" cols="50" placeholder="Mensaje" ref={register({ required: true, minLength: 10 })}></textarea>
+              <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 10 })}></textarea>
               {errors.message && <Typography variant="h4" className={classes.error}>El mensaje no puede estar vacío</Typography>}
               <button type="submit" className={classes.button}>Enviar</button>
             </form>

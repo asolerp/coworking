@@ -64,12 +64,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '5%',
     [theme.breakpoints.down('sm')]: {
       fontSize: '3rem',
+    },
+    [theme.breakpoints.only('lg')]: {
+      fontSize: '3rem',
     }
   },
   serviceTitle: {
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     [theme.breakpoints.down('sm')]: {
+      fontSize: '3rem',
+    },
+    [theme.breakpoints.only('lg')]: {
       fontSize: '3rem',
     }
   }
@@ -83,7 +89,7 @@ const Service = ({number, text}) => {
 
   const classes = useStyles();
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" mb={3} width={!UpSm || SmLandscape || Ipad && "100%"}>
+    <Box display="flex" justifyContent="flex-start" alignItems="center" mb={3} width={!UpSm || SmLandscape || Ipad ? "100%" : "30%"}>
       <Typography variant="h1" component="p" className={classes.serviceNumber}>
         {number}
       </Typography>
@@ -105,12 +111,12 @@ const About = ({t}) => {
       <Grid container xl={12}>
         {
           UpSm && (
-            <Grid item container  xl={5}>
+            <Grid item container lg={5}  xl={5}>
               <Box className={classes.left} />
             </Grid>
           )
         }
-        <Grid item container  xl={7} xs={12}>
+        <Grid item container lg={7}  xl={7} xs={12}>
           <Box className={classes.right} display="flex" flexDirection="column" justifyContent="flex-start">
             <Typography variant="h5" className={classes.subtitle}>
               {t('about.subtitle')}
@@ -121,9 +127,9 @@ const About = ({t}) => {
             <Typography variant="h4" className={classes.text}>
               {t('about.text')}
             </Typography>
-            <Box display="flex" flexDirection={UpSm && !SmLandscape && !Ipad ? "row" : "column" } justifyContent="space-around" style={{ flexGrow: 1, width: '100%'}}>
-              <Service number={3} text={"Espacios"} />
-              <Service number={24} text={"Horas"} />
+            <Box display="flex" flexDirection={UpSm && !SmLandscape && !Ipad ? "row" : "column" } style={{ flexGrow: 1, width: '100%'}}>
+              <Service number={8} text={t('about.areas')} />
+              <Service number={2} text={t('about.indepe')} />
             </Box>           
           </Box>
         </Grid>

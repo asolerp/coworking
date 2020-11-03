@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: (UpSm) => UpSm ? '90%' : '100%',
-    padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(1)
+    padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(1),
   },
   menu: {
     color: 'white',
@@ -95,7 +95,7 @@ const Nav = (props) => {
   const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)
   const classes = useStyles(UpSm);
 
-  const [ menuOpen, setMenuOpen ] = useState()
+  const [ menuOpen, setMenuOpen ] = useState(false)
 
   return (
     <React.Fragment>
@@ -109,7 +109,7 @@ const Nav = (props) => {
               ...transitionStyles(SmLandscape)[state]
             }}>
               <Grid container justify="space-between">
-                <Grid item container xs={10} xl={4} justify="flex-start">
+                <Grid item container xs={10} lg={4} xl={4} justify="flex-start">
                   <img src="https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603963382/Coworking/Logo_blue.svg" alt="Coworking Port D'Andratx Logo" className={classes.logo} />
                 </Grid>
                 {

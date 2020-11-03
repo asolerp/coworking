@@ -8,7 +8,8 @@
   "header":  {
     "title": "El mejor espacio para tu trabajo",
     "subtitle_1": "coworking",
-    "subtitle_2": "networking"
+    "subtitle_2": "networking",
+    "contact": "Contacta"
   },
   "about": {
     "title":"Comunidad, creatividad, confort & mucho más",
@@ -24,5 +25,17 @@
     "address": {
       "title": "Dirección"
     }
+  },
+  "services": {
+    "sala": "Sala de reuniones",
+    "wifi": "Wifi alta velocidad",
+    "areas": "Varios espacios"
+  },
+  "contact": {
+    "name": "Nombre completo",
+    "email": "Email",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "send": "Enviar"
   }
 }

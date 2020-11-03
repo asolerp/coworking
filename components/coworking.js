@@ -43,7 +43,7 @@ const Coworking = () => {
         },
         styling: true,
         items: 6,
-        items_per_row: UpSm ? 3 : 1,
+        items_per_row: 3,
         margin: 0.2,
         lazy_load: true,
       })

@@ -1,28 +1,43 @@
 {
   "menu": {
-    "about": "Quienes somos",
-    "coworking": "El coworking",
-    "where": "Dónde estamos",
-    "contact": "Contacta"
+    "about": "About Us",
+    "coworking": "Coworking",
+    "where": "Where we are",
+    "contact": "Contact"
   },
   "header":  {
-    "title": "El mejor espacio para tu trabajo",
+    "title": "The best space for your work",
     "subtitle_1": "coworking",
-    "subtitle_2": "networking"
+    "subtitle_2": "networking",
+    "contact": "Contact"
   },
   "about": {
-    "title":"Comunidad, creatividad, confort & mucho más",
-    "subtitle": "QUIENES SOMOS",
-    "text": "El mundo ha cambiado, los trabajos han cambiado. Nuestro coworking nace de la necesidad de poder escoger un puesto de trabajo donde uno quiera y el tiempo que quiera."
+    "title":"Community, creativity, confort & much more",
+    "subtitle": "About Us",
+    "text": "World has changed, jobs has changed. Our coworking stems from the need to be able to choose the place and the time you want to work.",
+    "areas": "Areas",
+    "indepe": "Independent"
   },
   "where": {
-    "title":"En una de las zonas más exclusivas de mallorca",
-    "subtitle": "UBICACIÓN",
+    "title":"In one of the most exclusive areas of mallorca",
+    "subtitle": "LOCATION",
     "email": {
       "title": "Email"
     },
     "address": {
-      "title": "Dirección"
+      "title": "Address"
     }
+  }, 
+  "services": {
+    "sala": "Meeting room",
+    "wifi": "High speed wifi",
+    "areas": "Various spaces"
+  },
+  "contact": {
+    "name": "Complete name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send"
   }
 }

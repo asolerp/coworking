@@ -91,6 +91,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       width: '50px',
       height: '50px',
+    },
+    [theme.breakpoints.only('lg')]: {
+      marginRight: '3%'
     }
   },
   iconTitle: {
@@ -101,6 +104,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '2rem',
       width: '100%',
+    },
+    [theme.breakpoints.only('lg')]: {
+      fontSize: '2rem',
+      marginRight: '5%'
     }
   },
   iconInfo: {
@@ -108,7 +115,9 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     [theme.breakpoints.down('sm')]: {
       fontSize: '1rem',
-      width: '100%',
+    },
+    [theme.breakpoints.only('lg')]: {
+      fontSize: '1.5rem',
     }
   }
 })
@@ -138,9 +147,9 @@ const Where = ({t}) => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
   return (
-    <Element name="where">
+    <Element name="donde">
       <Grid container>
-        <Grid item container  xl={6} xs={12}>
+        <Grid item container lg={6} xl={6} xs={12}>
           <Box className={classes.left} display="flex" flexDirection="column" justifyContent="flex-start">
             <Typography variant="h5" className={classes.subtitle}>
               {t('where.subtitle')}
@@ -149,7 +158,7 @@ const Where = ({t}) => {
               {t('where.title')}
             </Typography>         
             <Box display="flex" flexDirection="column" justifyContent={UpSm ? "center" : "flex-start"} style={{flexGrow: 1}}>
-              <InfoItem title={t('where.address.title')} info={'C/ Andratx nº1'}>
+              <InfoItem title={t('where.address.title')} info={'Calle de Isaac Peral nº60'}>
                 <FaMapMarkerAlt color="white" size={UpSm ? 50 : 25} />
               </InfoItem>
               <InfoItem title={t('where.email.title')} info={'info@coworkingportandratx.com'}>
@@ -158,18 +167,18 @@ const Where = ({t}) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item container  xl={6} xs={12}>
+        <Grid item container lg={6} xl={6} xs={12}>
           <Box className={classes.right}>
             <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", background: "transparent", zIndex: 2 }} />
             <Box style={{ width: "100%", height: "100%", position: "absolute", top: "0", left: "0", zIndex: 1 }}>
               <ReactMapGL
-              mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"
-              mapboxApiAccessToken="pk.eyJ1IjoiYXNvbGVycCIsImEiOiJjam92ejA2ZGYxbWJrM3dwaDA4YmY1eDA2In0.dhk_MNpNlTqubZiObpTOtg"
-              width='100%'
-              height='100%'
-              latitude={39.544865}
-              longitude={2.389223}
-              zoom={14}
+                mapStyle="mapbox://styles/asolerp/ckgn983i61dh719pkz226t4vr"
+                mapboxApiAccessToken="pk.eyJ1IjoiYXNvbGVycCIsImEiOiJjam92ejA2ZGYxbWJrM3dwaDA4YmY1eDA2In0.dhk_MNpNlTqubZiObpTOtg"
+                width='100%'
+                height='100%'
+                latitude={39.543097}
+                longitude={2.387479}
+                zoom={14}
               >
               <Marker latitude={39.543922} longitude={2.385725} offsetLeft={0} offsetTop={0}>
                 <img src={'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/logo_simple.png'} className={classes.logo} />
