@@ -95,7 +95,7 @@ const Footer = ({t}) => {
 
   const sendEmail = (data, e) => {
     e.preventDefault()
-    emailjs.sendForm('gmail', 'template_41zn7jo', e.target, 'user_QNiAukl0EEgIKSoUsafql')
+    emailjs.sendForm('coworking', 'template_41zn7jo', e.target, 'user_QNiAukl0EEgIKSoUsafql')
       .then((result) => {
         formMessageHandler(true)
       }, (error) => {
@@ -122,7 +122,7 @@ const Footer = ({t}) => {
               {errors.phone && <Typography variant="h4" className={classes.error}>El teléfono es obligatorio</Typography>}
               <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 2 })}></textarea>
               {errors.message && <Typography variant="h4" className={classes.error}>El mensaje no puede estar vacío</Typography>}
-              <button type="submit" className={classes.button}>Enviar</button>
+              <button type="submit" className={classes.button}>{t('contact.send')}</button>
               { formMessage && <Typography variant="h4" className={classes.error}>{formMessage}</Typography> }
             </form>
           </Box>
