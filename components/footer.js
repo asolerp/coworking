@@ -5,7 +5,7 @@ import Copy from './copy'
 import emailjs from 'emailjs-com';
 import { useForm } from "react-hook-form";
 
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from '../i18n'
 import { Element } from 'react-scroll'
@@ -63,8 +63,9 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     color: '#142A54',
     background: '#4AEDC2',
-    height: '50px',
+    height: '70px',
     fontSize: '1.5rem',
+    padding: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     }
@@ -82,8 +83,9 @@ const useStyles = makeStyles((theme) => ({
 const Footer = ({t}) => {
   const classes = useStyles();
   const onSubmit = (data, e) => sendEmail(data, e);
-  const { register, errors, handleSubmit } = useForm();
+  const { register, errors, handleSubmit, reset } = useForm();
   const [ formMessage, setFormMessage ] = useState()
+  const [ loading, setLoading ] = useState(false)
 
   const formMessageHandler = (status)   => {
     if (status) setFormMessage(t('contact.success'))
@@ -94,12 +96,16 @@ const Footer = ({t}) => {
   }
 
   const sendEmail = (data, e) => {
+    setLoading(true)
     e.preventDefault()
     emailjs.sendForm('coworking', 'template_41zn7jo', e.target, 'user_QNiAukl0EEgIKSoUsafql')
       .then((result) => {
         formMessageHandler(true)
+        setLoading(false)
+        reset()
       }, (error) => {
         formMessageHandler(false)
+        setLoading(false)
       });
   }
 
@@ -122,7 +128,9 @@ const Footer = ({t}) => {
               {errors.phone && <Typography variant="h4" className={classes.error}>El teléfono es obligatorio</Typography>}
               <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 2 })}></textarea>
               {errors.message && <Typography variant="h4" className={classes.error}>El mensaje no puede estar vacío</Typography>}
-              <button type="submit" className={classes.button}>{t('contact.send')}</button>
+              <button type="submit" className={classes.button}>
+                { loading ? <CircularProgress /> : t('contact.send') }
+              </button>
               { formMessage && <Typography variant="h4" className={classes.error}>{formMessage}</Typography> }
             </form>
           </Box>

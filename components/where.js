@@ -161,6 +161,9 @@ const Where = ({t}) => {
               <InfoItem title={t('where.address.title')} info={'Calle de Isaac Peral nº60'}>
                 <FaMapMarkerAlt color="white" size={UpSm ? 50 : 25} />
               </InfoItem>
+              <InfoItem title={t('where.address.title')} info={'Calle Brismar nº8'}>
+                <FaMapMarkerAlt color="white" size={UpSm ? 50 : 25} />
+              </InfoItem>
               <InfoItem title={t('where.email.title')} info={'info@coworkingportandratx.com'}>
                 <AiOutlineMail color="white" size={UpSm ? 50 : 25} />
               </InfoItem>
