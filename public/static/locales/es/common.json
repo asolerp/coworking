@@ -36,6 +36,8 @@
     "email": "Email",
     "phone": "Teléfono",
     "message": "Mensaje",
-    "send": "Enviar"
+    "send": "Enviar",
+    "success": "El mensaje se ha enviado correctamente",
+    "error": "Algo fue mal... inténtelo más tarde"
   }
 }

@@ -38,6 +38,8 @@
     "email": "Email",
     "phone": "Phone",
     "message": "Message",
-    "send": "Send"
+    "send": "Send",
+    "success": "Message has sent successfully",
+    "error": "Something wrong... try later"
   }
 }

@@ -1,14 +1,15 @@
 import { Box, Grid, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import Copy from './copy'
 
-
+import emailjs from 'emailjs-com';
 import { useForm } from "react-hook-form";
 
 
 import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from '../i18n'
 import { Element } from 'react-scroll'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,8 +81,27 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = ({t}) => {
   const classes = useStyles();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data, e) => sendEmail(data, e);
   const { register, errors, handleSubmit } = useForm();
+  const [ formMessage, setFormMessage ] = useState()
+
+  const formMessageHandler = (status)   => {
+    if (status) setFormMessage(t('contact.success'))
+    if (!status) setFormMessage(t('contact.error'))
+    setTimeout(() => {
+      setFormMessage(null)
+    },2000)
+  }
+
+  const sendEmail = (data, e) => {
+    e.preventDefault()
+    emailjs.sendForm('gmail', 'template_41zn7jo', e.target, 'user_QNiAukl0EEgIKSoUsafql')
+      .then((result) => {
+        formMessageHandler(true)
+      }, (error) => {
+        formMessageHandler(false)
+      });
+  }
 
   return(
     <Element name="contact">
@@ -100,9 +120,10 @@ const Footer = ({t}) => {
               {errors.email && <Typography variant="h4" className={classes.error}>El email no es correcto</Typography>}
               <input type="text" name="phone" className={classes.input} placeholder={t('contact.phone')} ref={register({ required: true, maxLength: 20 })}></input>
               {errors.phone && <Typography variant="h4" className={classes.error}>El teléfono es obligatorio</Typography>}
-              <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 10 })}></textarea>
+              <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 2 })}></textarea>
               {errors.message && <Typography variant="h4" className={classes.error}>El mensaje no puede estar vacío</Typography>}
               <button type="submit" className={classes.button}>Enviar</button>
+              { formMessage && <Typography variant="h4" className={classes.error}>{formMessage}</Typography> }
             </form>
           </Box>
         </Grid>

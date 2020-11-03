@@ -28,44 +28,44 @@ const Coworking = () => {
   const classes = useStyles();
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    const startIntagram = () => {
-      new window.InstagramFeed({
-        username: 'houses',
-        container: document.getElementById('instagram-feed'),
-        display_profile: false,
-        display_biography: true,
-        display_gallery: true,
-        get_raw_json: false,
-        callback: () => {
-          setInstaReady(true)
-        },
-        styling: true,
-        items: 6,
-        items_per_row: 3,
-        margin: 0.2,
-        lazy_load: true,
-      })
-    }
+  //   const startIntagram = () => {
+  //     new window.InstagramFeed({
+  //       username: 'houses',
+  //       container: document.getElementById('instagram-feed'),
+  //       display_profile: false,
+  //       display_biography: true,
+  //       display_gallery: true,
+  //       get_raw_json: false,
+  //       callback: () => {
+  //         setInstaReady(true)
+  //       },
+  //       styling: true,
+  //       items: 6,
+  //       items_per_row: 3,
+  //       margin: 0.2,
+  //       lazy_load: true,
+  //     })
+  //   }
 
-    startIntagram()
+  //   startIntagram()
 
-  },[UpSm])
+  // },[UpSm])
 
 
 
   return (
     <Element name="coworking">
       <div className={classes.root}>
-        <div id="instagram-feed" class="instagram_feed"></div>
-        {/* <GridList cellHeight={480} className={classes.gridList} cols={UpSm ? 3 : 1}>
+        {/* <div id="instagram-feed" class="instagram_feed"></div> */}
+        <GridList cellHeight={480} className={classes.gridList} cols={UpSm ? 3 : 1}>
           {Images.map((tile) => (
             <GridListTile key={tile.img} cols={tile.cols || 1}>
               <img src={tile.img} alt={tile.title} />
             </GridListTile>
           ))}
-        </GridList> */}
+        </GridList>
       </div>
     </Element>
   )
