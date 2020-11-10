@@ -112,4 +112,8 @@ const Header = ({t}) => {
   )
 }
 
+Header.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default withTranslation('common')(Header)

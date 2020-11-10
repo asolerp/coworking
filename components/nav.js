@@ -160,5 +160,9 @@ const Nav = (props) => {
   )
 }
 
+Nav.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default withTranslation('common')(Nav)
 

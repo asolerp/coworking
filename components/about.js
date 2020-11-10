@@ -138,4 +138,8 @@ const About = ({t}) => {
   )
 }
 
+About.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default withTranslation('common')(About)

@@ -143,4 +143,8 @@ const Footer = ({t}) => {
   )
 }
 
+Footer.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default withTranslation('common')(Footer)

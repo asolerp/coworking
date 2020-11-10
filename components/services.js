@@ -68,4 +68,8 @@ const Services = ({t}) => {
   )
 }
 
+Services.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default  withTranslation('common')(Services)

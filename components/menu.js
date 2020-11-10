@@ -50,7 +50,7 @@ const Menu = (props) => {
         <Typography 
           onClick={() => i18n.changeLanguage('es')}
           variant="h6" 
-          className={[classes.menu, i18n.language === 'es' && classes.active]}
+          className={[classes.menu, i18n.language === 'es' ? classes.active : undefined]}
         >
           ES
         </Typography>
@@ -60,7 +60,7 @@ const Menu = (props) => {
         <Typography 
           onClick={() => i18n.changeLanguage('en')}
           variant="h6" 
-          className={[classes.menu, i18n.language === 'en' && classes.active]}>
+          className={[classes.menu, i18n.language === 'en' ? classes.active : undefined]}>
           EN
         </Typography>
         {/* <Typography variant="h6" className={classes.menu}>
@@ -73,5 +73,9 @@ const Menu = (props) => {
     </React.Fragment>
   )
 }
+
+Menu.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
 
 export default withTranslation('common')(Menu)

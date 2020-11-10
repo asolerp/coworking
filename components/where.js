@@ -195,4 +195,8 @@ const Where = ({t}) => {
   )
 }
 
+Where.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default withTranslation('common')(Where)

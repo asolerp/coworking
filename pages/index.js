@@ -89,4 +89,8 @@ const Home = ({t}) => {
   )
 }
 
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+
 export default Home
