@@ -5,9 +5,10 @@ import { ServerStyleSheets } from '@material-ui/core/styles';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="es">
         <Head>
           {/* PWA primary color */}
+          <meta name="google-site-verification" content="dyggQAgb9bgpsq3bFyedPSvVKQjEJK20iBNsWdkOy_4" />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></link>
           <link
             rel="stylesheet"
