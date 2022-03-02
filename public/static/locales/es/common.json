@@ -40,6 +40,8 @@
     "message": "Mensaje",
     "send": "Enviar",
     "success": "El mensaje se ha enviado correctamente",
+    "policy1": "Acepto los términos y condiciones de la ",
+    "policy2": "Política de privacidad",
     "error": "Algo fue mal... inténtelo más tarde"
   }
 }

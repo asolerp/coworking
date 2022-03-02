@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '5%',
     flexGrow: 1,
     [theme.breakpoints.down('sm')]: {
-      height: '70vh',
+      height: '73vh',
     },
     [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
       height: '150vh',

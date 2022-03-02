@@ -40,6 +40,8 @@
     "message": "Message",
     "send": "Send",
     "success": "Message has sent successfully",
+    "policy1": "I read and accept the ",
+    "policy2": "Privacy Policy",
     "error": "Something wrong... try later"
   }
 }

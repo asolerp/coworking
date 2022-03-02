@@ -1,5 +1,6 @@
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography, Link as MaterialLink } from '@material-ui/core';
 import React, { useState } from 'react';
+import { CustomLink } from './ui/CustomLink'
 import Copy from './copy'
 
 import emailjs from 'emailjs-com';
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     width: '80%',
-    borderRadius: '50px',
+    borderRadius: '20px',
     border: 0,
     color: '#142A54',
     background: '#4AEDC2',
@@ -68,7 +69,24 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+    },
+    "&:disabled": {
+      opacity: 0.3
     }
+  },
+  checkBoxContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: 15 
+  },
+  checkBox: {
+    transform: `scale(2)`
+  },
+  checkBoxText: {
+    color: 'white',
+    marginLeft: 15,
+    alignItems: 'center',
+    marginRight: 5,
   },
   error: {
     color: '#4AEDC2',
@@ -76,6 +94,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     marginBottom: '2%',
     paddingLeft: '.5%'
+  },
+  link: {
+    color: 'white',
   }
 })
 )
@@ -83,9 +104,19 @@ const useStyles = makeStyles((theme) => ({
 const Footer = ({t}) => {
   const classes = useStyles();
   const onSubmit = (data, e) => sendEmail(data, e);
-  const { register, errors, handleSubmit, reset } = useForm();
+  const { register, formState: { errors, isValid, isDirty }, handleSubmit, reset } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    },
+    mode: 'onChange'
+  });
   const [ formMessage, setFormMessage ] = useState()
   const [ loading, setLoading ] = useState(false)
+
+  console.log("isValid", isValid)
 
   const formMessageHandler = (status)   => {
     if (status) setFormMessage(t('contact.success'))
@@ -128,7 +159,11 @@ const Footer = ({t}) => {
               {errors.phone && <Typography variant="h4" className={classes.error}>El teléfono es obligatorio</Typography>}
               <textarea name="message" className={classes.text} rows="10" cols="50" placeholder={t('contact.message')} ref={register({ required: true, minLength: 2 })}></textarea>
               {errors.message && <Typography variant="h4" className={classes.error}>El mensaje no puede estar vacío</Typography>}
-              <button type="submit" className={classes.button}>
+              <div className={classes.checkBoxContainer}>
+                <input type="checkbox" name='policy' className={classes.checkBox} ref={register({ required: true })} />
+                <Typography variant="subtitle1" className={classes.checkBoxText} >{t('contact.policy1')}<CustomLink href="/policy" className={classes.link}>{t('contact.policy2')}</CustomLink></Typography>
+              </div>
+              <button disabled={!isDirty || !isValid}  type="submit" className={classes.button}>
                 { loading ? <CircularProgress /> : t('contact.send') }
               </button>
               { formMessage && <Typography variant="h4" className={classes.error}>{formMessage}</Typography> }
