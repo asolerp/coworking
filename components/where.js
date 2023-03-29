@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '5%',
     flexGrow: 1,
     [theme.breakpoints.down('sm')]: {
-      height: '73vh',
+      height: '100%',
+      paddingBottom: 20
     },
     [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
-      height: '150vh',
+      height: '100%',
     }
   },
   right: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     width: '90%',
     marginBottom: '5%',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '3rem',
+      fontSize: '2rem',
       width: '100%',
       marginBottom: '20%'
     },
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '5%',
     marginTop: '5%',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '1.3rem',
+      fontSize: '1rem',
     }
   },
   text: {
@@ -102,7 +103,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     color: 'white',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
+      marginLeft: 10,
       width: '100%',
     },
     [theme.breakpoints.only('lg')]: {
@@ -115,6 +117,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     [theme.breakpoints.down('sm')]: {
       fontSize: '1rem',
+      marginLeft: 10,
     },
     [theme.breakpoints.only('lg')]: {
       fontSize: '1.5rem',

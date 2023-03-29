@@ -1,27 +1,27 @@
 
 export const Images = [
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image12.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145606/Coworking/lfpqxsyt66hgfx7glabq.jpg',
     title: 'Salón',
   },
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/image16.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145605/Coworking/uhlkmbvlfflayhubnftw.jpg',
     title: 'Salón',
   },
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image14.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145605/Coworking/x0z4vhn6aswgpqdh3jeb.jpg',
     title: 'Salón',
   },
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image13.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145605/Coworking/zurlibt6zpmjuskfojxv.jpg',
     title: 'Salón',
   },
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image2.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145605/Coworking/lzgoppnheguw1wtusgl4.jpg',
     title: 'Salón',
   },
   {
-    img: 'https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955521/Coworking/image10.jpg',
+    img: 'https://res.cloudinary.com/enalbis/image/upload/v1679145605/Coworking/fhk7wyhlu8wt4ahfm4ty.jpg',
     title: 'Salón',
   }
 ]

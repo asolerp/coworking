@@ -35,8 +35,11 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   },
   container: {
+    position: 'absolute',
+    top: 0,
     flexGrow: 1,
     backgroundColor: '#142A54',
+    zIndex: 100,
   },
   containerOpen: {
     flexGrow: 1,
@@ -46,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     transition: "all .5s"
   },
   logo: {
-    width: (UpSm) => UpSm ? '90%' : '100%',
+    width: (UpSm) => UpSm ? '60%' : '100%',
     padding: (UpSm) => UpSm ? theme.spacing(3) : theme.spacing(1),
   },
   menu: {
@@ -89,7 +92,7 @@ const transitionStyles2 = {
   exited:  { opacity: 0 },
 };
 
-const Nav = (props) => {
+const Nav = () => {
   const UpSm = useMediaQuery(theme => theme.breakpoints.up('sm'));
   const Ipad = useMediaQuery(theme => theme.breakpoints.between('sm','md'));
   const SmLandscape = useMediaQuery(theme => `${theme.breakpoints.only('sm')} and (orientation: landscape)`)

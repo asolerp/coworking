@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import dynamic from 'next/dynamic';
 
 
@@ -38,14 +38,17 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'fixed',
-    width: '70px',
-    height: '70px',
+    width: '100px',
+    height: '100px',
     borderRadius: '50%',
     zIndex: 99,
     right: 10,
-    top: 850,
+    bottom: 10,
     [theme.breakpoints.down('sm')]: {
-      top: 550,
+      width: '50px',
+      height: '50px',
+      bottom: 10,
+      right: 10,
     }
   }
 }));
@@ -59,7 +62,7 @@ export const UpButton = () => {
   const classes = useStyles();
   return (
     <Box className={classes.upButton}>
-     <FaChevronCircleUp color="#4AEDC2" size={50} style={{cursor: 'pointer'}} onClick={() => topScroll()}/>
+     <FaChevronCircleUp color="#4AEDC2" size={70} style={{cursor: 'pointer'}} onClick={() => topScroll()}/>
     </Box>
   )
 }

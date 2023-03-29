@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import {appWithTranslation} from '../i18n';
+import 'tailwindcss/tailwind.css'
 import { DefaultSeo } from 'next-seo'
 
 import '../global.css'

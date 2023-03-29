@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'AlimentPERSONALUSE-Thin';
   src: url('/static/fonts/AlimentPERSONALUSE-Thin.eot'); /* IE9 Compat Modes */

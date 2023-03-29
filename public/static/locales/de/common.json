@@ -1,0 +1,49 @@
+{
+    "menu": {
+    "about": "Wer wir sind",
+    "coworking": "Das Coworking",
+    "where": "Wo wir sind",
+    "contact": "Kontakt"
+    },
+    "header": {
+    "title": "Arbeite in einem der spektakulärsten Häfen Mallorcas",
+    "subtitle_1": "Coworking",
+    "subtitle_2": "Networking",
+    "contact": "Kontakt"
+    },
+    "about": {
+    "title":"Gemeinschaft, Kreativität, Komfort & vieles mehr",
+    "subtitle": "WER WIR SIND",
+    "text": "Unser Coworking im Port d'Andratx ist ein lebendiger und moderner Arbeitsraum, der darauf ausgelegt ist, zu inspirieren und zusammenzuarbeiten. Mit einer jungen Atmosphäre und einer energiegeladenen Gemeinschaft bieten wir eine einzigartige Arbeitsumgebung, in der du wachsen und gedeihen kannst. Werde Teil unserer Gemeinschaft und entdecke die Kraft des gemeinsamen Arbeitens.",
+    "text_1": "Gemeinsame und unabhängige Bereiche sowie ein Besprechungsraum.",
+    "text_2": "Der beste Raum für Ihre Arbeit, 24 Stunden zu Ihrer Verfügung.",
+    "areas": "Bereiche",
+    "indepe": "Freiberufler"
+    },
+    "where": {
+    "title":"In einer der exklusivsten Gegenden Mallorcas",
+    "subtitle": "LAGE",
+    "email": {
+        "title": "E-Mail"
+      },
+      "address": {
+        "title": "Adresse"
+      }
+    },
+    "services": {
+    "sala": "Besprechungsraum",
+    "wifi": "High-Speed-WLAN",
+    "areas": "Mehrere Räume"
+    },
+    "contact": {
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "message": "Nachricht",
+    "send": "Senden",
+    "success": "Die Nachricht wurde erfolgreich gesendet",
+    "policy1": "Ich akzeptiere die Bedingungen der ",
+    "policy2": "Datenschutzrichtlinie",
+    "error": "Etwas ist schiefgelaufen... bitte versuchen Sie es später noch einmal"
+    }
+}

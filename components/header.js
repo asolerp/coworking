@@ -13,10 +13,11 @@ import { Link } from 'react-scroll'
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundImage: `url('https://res.cloudinary.com/dh8rg0xrn/image/upload/v1603955522/Coworking/fondo_1.jpg')`,
+    zIndex: 100,
+    backgroundImage: `url('https://res.cloudinary.com/enalbis/image/upload/v1679150667/Coworking/fwcd3ilckp7fv2vajqda.png')`,
     backgroundSize: 'cover',
     width: '100%',
-    height: '85vh',
+    height: '100vh',
     flexGrow: 1,
     [theme.breakpoints.down('sm')]: {
       height: '90vh',
@@ -32,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '60%',
     marginBottom: '2%',
-    fontSize: '8rem', 
+    fontSize: '6rem', 
     [theme.breakpoints.down('sm')]: {
       width: '90%',
       marginBottom: '10%',
-      fontSize: '4rem'
+      fontSize: '2.2rem'
     },
     [theme.breakpoints.only('lg')]: {
       fontSize: '6rem'
@@ -49,13 +50,14 @@ const useStyles = makeStyles((theme) => ({
     width: '50%',
     [theme.breakpoints.down('sm')]: {
       width: '90%',
+      fontSize: '1.5rem'
     }
   },
   dot: {
     height: '25px',
     width: '25px',
     backgroundColor: '#142A54',
-    borderRadius: '50%',
+    borderRadius: '100%',
     display: 'inline-block',
     [theme.breakpoints.down('sm')]: {
       height: '15px',
@@ -74,7 +76,10 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     fontFamily: 'Montserrat',
     fontWeight: '400',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+    }
   }
 }));
 
@@ -90,12 +95,13 @@ const Header = ({t}) => {
         flexDirection="column" 
         justifyContent="center" 
         alignItems="center" 
-        className={classes.container}
+        className={`${classes.container}`}
         >
+          
         <Typography variant="h1" className={classes.title}>
           {t('header.title')}
         </Typography>
-        <Box display="flex" flexDirection={UpSm && !SmLandscape ? "row" : "column"} justifyContent="center" alignItems="center" width={UpSm ? "35%" : "100%"} mb={UpSm ? 20 : 10}>
+        <Box display="flex" flexDirection={UpSm && !SmLandscape ? "row" : "row"} justifyContent="center" alignItems="center" width={UpSm ? "35%" : "100%"} mb={UpSm ? 10 : 10}>
           <Typography variant="h4" className={classes.subtitle}>
             {t('header.subtitle_1')}
           </Typography>

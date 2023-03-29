@@ -63,12 +63,15 @@ const Menu = (props) => {
           className={[classes.menu, i18n.language === 'en' ? classes.active : undefined]}>
           EN
         </Typography>
-        {/* <Typography variant="h6" className={classes.menu}>
+        <Typography variant="h6" className={classes.menu}>
           |
         </Typography>
-        <Typography variant="h6" className={classes.menu}>
-          GB
-        </Typography> */}
+        <Typography 
+          onClick={() => i18n.changeLanguage('de')}
+          variant="h6" 
+          className={[classes.menu, i18n.language === 'de' ? classes.active : undefined]}>
+          DE
+        </Typography>
       </Grid>
     </React.Fragment>
   )

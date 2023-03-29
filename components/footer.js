@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
     backgroundColor: '#142A54',
     padding: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      height: '100%'
+    },
     [`${theme.breakpoints.down('sm')} and (orientation: landscape)`]: {
       height: '250vh',
     }

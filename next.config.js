@@ -2,7 +2,8 @@ const { nextI18NextRewrites } = require('next-i18next/rewrites')
 const withImages = require('next-images')
 const localeSubpaths = {
   es: 'es',
-  en: 'en'
+  en: 'en',
+  de: 'de',
 }
 
 module.exports = withImages({
