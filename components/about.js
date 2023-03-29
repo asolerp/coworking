@@ -135,7 +135,7 @@ const About = ({t}) => {
             <Typography variant="h4" className={classes.text}>
               {t('about.text_2')}
             </Typography>
-            <Box display="flex" flexDirection={UpSm && !SmLandscape && !Ipad ? "row" : "column" } style={{ flexGrow: 1, width: '100%', marginTop: 10}}>
+            <Box display="flex" flexDirection={UpSm && !SmLandscape && !Ipad ? "row" : "column" } style={{ flexGrow: 1, width: '100%'}}>
               <Service number={8} text={t('about.areas')} />
               <Service number={2} text={t('about.indepe')} />
             </Box>           
